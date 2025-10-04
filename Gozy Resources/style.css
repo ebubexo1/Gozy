@@ -1,0 +1,490 @@
+body {
+    font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fafafa; /* Ultra-light gray for a pristine backdrop */
+    color: #0a1a3a; /* Richer navy for sharper text */
+    line-height: 1.7;
+}
+
+header {
+    background-color: #0a1a3a; /* Rich navy for a luxurious header */
+    color: #fff;
+    padding: 20px 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: fixed; /* Ensure navbar stays at top */
+    width: 100%;
+    top: 0;
+    z-index: 1000; /* Keep above content */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.hello {
+    display: none; /* Hide logo by default on all pages */
+}
+
+body.home-page .hello {
+    display: flex; /* Show logo only on home page */
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001; /* Above navbar */
+    align-items: center;
+}
+
+body.home-page .hello img {
+    height: 80px;
+    width: 80px;
+    max-width: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid #f4c430;
+}
+
+body.home-page .hello img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(244, 196, 48, 0.5);
+}
+
+/* Responsive adjustments for home page */
+@media (max-width: 768px) {
+    body.home-page .hello {
+        top: 15px;
+        right: 15px;
+    }
+
+    body.home-page .hello img {
+        height: 60px;
+        width: 60px;
+        border: 1px solid #f4c430;
+    }
+}
+
+.contact-container {
+    max-width: 1280px;
+    margin: 120px auto 80px; /* Space for fixed header */
+    padding: 0 20px;
+}
+
+.contact-content {
+    background-image: url('./assets/assets.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 500px;
+    position: relative;
+    padding: 40px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.contact-form {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.9); /* Semi-transparent white for readability */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    order: 1; /* Form on the left */
+}
+
+.contact-form label {
+    margin-top: 15px;
+    font-weight: 600;
+    color: #0a1a3a;
+    text-align: left;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 12px;
+    margin-top: 6px;
+    border: 1px solid #d0d0d0;
+    border-radius: 10px;
+    font-size: 1.1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #f4c430;
+    box-shadow: 0 0 10px rgba(244, 196, 48, 0.3);
+    outline: none;
+}
+
+.contact-form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #f4c430;
+    color: #0a1a3a;
+    padding: 12px 30px;
+    margin-top: 20px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    cursor: pointer;
+    max-width: 200px;
+    align-self: flex-end;
+}
+
+.btn:hover {
+    background-color: #d9a826;
+    transform: translateY(-4px);
+    box-shadow: 0 6px 25px rgba(244, 196, 48, 0.5);
+}
+
+.contact-info {
+    flex: 1;
+    padding: 30px 20px;
+    text-align: left;
+    background: rgba(10, 26, 58, 0.3); /* More transparent navy overlay */
+    border-radius: 10px;
+    color: #fff;
+    order: 2; /* Info on the right */
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contact-info h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #f4c430;
+}
+
+.contact-info p {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.whatsapp-btn {
+    display: inline-block;
+    background-color: #25D366; /* WhatsApp green */
+    color: #fff;
+    padding: 12px 25px;
+    margin-top: 20px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-align: center;
+    max-width: 200px;
+    margin-top: auto; /* Push to bottom */
+}
+
+.whatsapp-btn:hover {
+    background-color: #1da851;
+    transform: translateY(-3px);
+}
+
+#mapContainer {
+    display: block;
+    width: 100%;
+    margin-top: 1rem;
+    order: 3; /* Ensure map is below form and info */
+}
+
+#map {
+    height: 400px;
+    width: 100%;
+}
+
+.hidden {
+    display: none; /* For map toggle */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-content {
+        flex-direction: column;
+        min-height: 400px;
+        padding: 20px;
+    }
+
+    .contact-form, .contact-info {
+        flex: none;
+        width: 100%;
+        text-align: center;
+        order: unset; /* Reset order for natural stacking */
+        margin-bottom: 20px; /* Space between elements */
+    }
+
+    .contact-form {
+        margin-top: 0;
+    }
+
+    .contact-info {
+        min-height: 250px;
+        padding: 20px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: 10px;
+    }
+
+    .btn, .whatsapp-btn {
+        padding: 10px 20px;
+        max-width: 150px;
+    }
+
+    #mapContainer {
+        margin-top: 1rem;
+    }
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-left: 35px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1em;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #f4c430; /* Gold accent on hover */
+    transform: translateY(-3px);
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    height: 4px;
+    width: 30px;
+    background: #fff;
+    margin-bottom: 6px;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(8px, -7px);
+}
+
+.hero {
+    background: url('./assets/assets.jpg') no-repeat center center/cover;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 26, 58, 0.55); /* Deeper navy overlay for elegance */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    padding: 40px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.15); /* Subtle white for glassy effect */
+    backdrop-filter: blur(8px); /* Enhanced blur for premium feel */
+    animation: fadeInUp 1s ease-out;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero-content h1 {
+    font-size: 3.2em;
+    margin-bottom: 15px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.hero-content p {
+    font-size: 1.3em;
+    margin-bottom: 25px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #f4c430; /* Vibrant gold button */
+    color: #0a1a3a; /* Navy text */
+    padding: 14px 35px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #d9a826; /* Slightly darker gold on hover */
+    transform: translateY(-4px);
+    box-shadow: 0 6px 25px rgba(244, 196, 48, 0.5);
+}
+
+.about, .products, .contact {
+    max-width: 1280px;
+    margin: 80px auto;
+    padding: 0 20px;
+    animation: fadeIn 1.2s ease-in;
+}
+
+.about h1, .products h1, .contact h1 {
+    text-align: center;
+    font-size: 2.8em;
+    margin-bottom: 35px;
+    color: #0a1a3a;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 35px;
+}
+
+.product-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    text-align: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border: 1px solid #e5e5e5; /* Ultra-crisp border */
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+    max-width: 100%;
+    border-radius: 12px;
+    transition: transform 0.4s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.04);
+}
+
+.product-card h3 {
+    margin: 15px 0 5px;
+    font-size: 1.5em;
+    color: #0a1a3a;
+    font-weight: 600;
+}
+
+.product-card p {
+    font-size: 1.3em;
+    color: #f4c430; /* Gold for price */
+    font-weight: 700;
+}
+
+footer {
+    background-color: #0a1a3a; /* Rich navy footer */
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 1em;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: #0a1a3a;
+        padding: 25px 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 20px 0;
+        text-align: center;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hero {
+        height: 50vh;
+    }
+
+    .hero-content h1 {
+        font-size: 2.4em;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form {
+        padding: 25px;
+    }
+}
